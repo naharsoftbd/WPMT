@@ -1,0 +1,70 @@
+input.error { border: 1px solid red; }
+label.error {
+	color:red;
+	
+}
+.page-header{
+    clear:both;
+    float:none !important;
+}
+.userinfo {
+    list-style-type:none;
+}
+.progress{
+    clear:both;
+    background:#4f81bd !important;
+    height:124px !important;
+    position: relative;
+   
+    
+}
+.progress div{
+     display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    padding:10px;
+}
+
+.progress div {
+	background-image: url('../images/after-arrow.png');
+	background-repeat: no-repeat;
+        background-position:right center;
+}
+
+.progress::after {
+	content: '';
+	position: absolute;
+	top: 0px;
+	width: 3.8%;
+	height: 100%;
+	right: 0px;
+	background-image: url('../images/progressafter.png');
+	background-repeat: no-repeat;
+}
+.progress .progress-bar-warning{
+    background-color:#31859c !important;
+    background-image: url('../images/after-arrow-active.png');
+}
+.progress .highlight{
+    background-image: url('../images/priv-arrow-active.png');
+}
+.progress .processing{
+    background-image: url('../images/processing-arrow.png');
+}
+.progress .progress-bar-last::after{
+        background-image: url('../images/progresslast.png');
+	background-repeat: no-repeat;
+        content: '';
+	position: absolute;
+	top: 0px;
+	width: 45px;
+	height: 100%;
+	right: 0px;
+        z-index:23;
+}
+.fc-title {
+    cursor: pointer;
+}

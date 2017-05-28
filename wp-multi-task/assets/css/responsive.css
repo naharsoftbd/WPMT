@@ -1,0 +1,199 @@
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+		.wizard > .steps {
+	  background-color: #0099ff;
+	  padding: 0 65px 0 15px;
+	}
+     .wizard > .steps > ul > li {
+		width:100% !important;
+		display:none;
+	}
+	
+	.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+     margin:0px;
+}
+#zipcode{
+	 margin-bottom:15px;
+ }
+ .col-xs-cpull-12 {
+  top: 210px;
+  position:relative;
+}
+.col-xs-cpush-12 {
+  bottom: 260px;
+   position:relative;
+}
+.col-md-4.wichtig{
+	margin-bottom:35px;
+}
+#calculator-form > .content > .body .wichtig-check label.css-label{
+	font-size:16px;
+}
+.module-slider .col-md-3 {
+  margin: 15px 0;
+  text-align: center;
+}
+.wizard > .content > .body ul > li.module-item {
+  display: inline-block;
+  margin: 8px 7px;
+  width: 30%;
+}
+.wizard > .content > .body ul > li.module-item:first-child {
+  margin-left: 8px;
+}
+#calculator-form table.dataTable thead th, table.dataTable thead td {
+  border: medium none;
+  font-size: 13px;
+  padding: 10px 18px;
+}
+}
+@media only screen and (min-width : 480px) and (max-width : 767px) {
+	.wizard > .steps {
+	  background-color: #0099ff;
+	  padding: 0 65px 0 15px;
+	}
+	.wizard > .steps > ul > li {
+		width:100% !important;
+		display:none;
+	}
+	#calculator-form .steps li.current {
+	  display:block;
+	}
+	.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+     margin:0px;
+}
+ #zipcode{
+	 margin-bottom:15px;
+ }
+ #zipcode{
+	 margin-bottom:15px;
+ }
+ .col-xs-cpull-12 {
+  top: 210px;
+  position:relative;
+}
+.col-xs-cpush-12 {
+  bottom: 260px;
+   position:relative;
+}
+.col-md-4.wichtig{
+	margin-bottom:35px;
+}
+#calculator-form > .content > .body .wichtig-check label.css-label{
+	font-size:16px;
+}
+.module-slider .col-md-3 {
+  margin: 15px 0;
+  text-align: center;
+}
+.wizard > .content > .body ul > li.module-item {
+  display: inline-block;
+  margin: 8px 7px;
+  width: 30%;
+}
+.wizard > .content > .body ul > li.module-item:first-child {
+  margin-left: 8px;
+}
+#calculator-form table.dataTable thead th, table.dataTable thead td {
+  border: medium none;
+  font-size: 13px;
+  padding: 10px 18px;
+}
+}
+
+@media only screen and (min-width : 768px) and (max-width : 1024px) {/*--- Tablet portrait (768x1024) ---*/
+     .fa-ul.colored > li{
+		 font-size:16px;
+	 }
+	 .wizard > .steps{
+	    padding:0px;
+	 }
+	 #calculator-form .steps li.first{
+		 margin-left:0px;
+	 }
+	 .wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active{
+		 font-size:16px;
+		  margin: 7px 5px;
+		  padding:13px;
+		  font-weight:400;
+	 }
+	.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+	  font-size:14px;
+	   padding:13px;
+	}
+	.wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active{
+		font-size:16px;
+		 padding:14px;
+	}
+	 #calculator-form .steps li.last {
+		  border-right: medium none;
+		  float: right;
+		  margin-right: 0;
+		}
+	.wizard > .steps > ul > li {
+	  width: 31.7%;
+	}
+	.wizard > .content > .body ul > li.module-item {
+	  display: inline-block;
+	  margin: 2px;
+	  width: 15.7%;
+	}
+	
+	.pull-right-sm {
+        float: right;
+    }
+	#calculator-form .steps li{
+	/*border-right: 2px solid #e7e6e6;*/
+	background:#1380c9;
+		margin:0 8px;
+	}
+	
+}
+@media only screen and (min-width : 800px) and (max-width : 1024px) {/*--- Small tablet landscape 800x600 ---*/
+    .wizard > .steps > ul > li {
+	  width: 31% !important;
+	}
+   .wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active{
+		 font-size:16px;
+		  margin: 7px 5px;
+		  padding:13px !important;
+		  font-weight:400;
+	 }
+	.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+	  font-size:16px;
+	   padding:13px !important;
+	   font-weight:400;
+	}
+	.wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active{
+		font-size:16px;
+		 padding:13px !important;
+		 font-weight:400;
+	}
+	.wizard > .content > .body ul > li.module-item {
+	  display: inline-block;
+	  margin: 2px;
+	  width: 15.6%;
+	}
+}
+@media only screen and (min-width : 1024px) and (max-width : 1224px) {/*--- Tablet landscape --- */
+   .wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active{
+		 font-size:18px;
+		  margin: 7px 5px;
+		  padding:13px !important;
+		  font-weight:400;
+	 }
+	.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+	  font-size:18px;
+	   padding:13px !important;
+	   font-weight:400;
+	}
+	.wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active{
+		font-size:18px;
+		 padding:13px !important;
+		 font-weight:400;
+	}
+	#calculator-form .steps li{
+	/*border-right: 2px solid #e7e6e6;*/
+	background:#1380c9;
+		margin:0 8px;
+	}
+}
