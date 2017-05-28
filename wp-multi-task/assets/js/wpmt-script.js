@@ -6,40 +6,29 @@ jQuery(document).ready(function($){
         if (!$('form#login-form, form#register').valid()) return false;
         
         $('p.status', this).show().text(ajax_auth_object.loadingmessage);
-          
+        
 		action = 'process_login';
-		username = $('form#login-form #username').val();
-		password = $('form#login-form #password').val();
-		email = '';
-		security = $('form#login-form #security').val();
+		var userreg = $('form#login-form').serialize();
                  //alert(action);  
 		if ($(this).attr('id') == 'register') {
-			action = 'ajaxregister';
-			username = $('#signonname').val();
-			password = $('#signonpassword').val();
-			email = $('#email').val();
-			security = $('#signonsecurity').val();
-			recaptcha = $('#g-recaptcha-response').val();
+			action = 'userregistration';
+			var userreg = $('form#register').serialize();
 		}
 		ctrl = jQuery(this);
 	$.ajax({
             type: 'POST',
-            dataType: 'json',
+            dataType: 'html',
             url: ajax_auth_object.ajaxurl,
 			data: {
 				'action': action,
-				'username': username,
-				'password': password,
-				'email': email,
-				'security': security,
+				userreg
 		},
             success: function (data) {
-                            
-				if(($(ctrl).attr ('id') == 'register') && (data.loggedin == false)) grecaptcha.reset();
-				$('p.status').text(data.message);
-				if (data.loggedin == true) {
+                 
+				$('p.status').text(data);
+				
 					document.location.href = jQuery(ctrl).attr ('id') == 'register' ? ajax_auth_object.register_redirect : ajax_auth_object.redirecturl;
-                }
+                
             }
         });
         e.preventDefault();
@@ -92,7 +81,7 @@ jQuery(document).ready(function($){
     });
     
  
-	 $('#birthday').datepicker({
+	 $('#dob-date').datepicker({
         dateFormat: "mm/dd/yy",
         changeYear: true,
         changeMonth: true,
