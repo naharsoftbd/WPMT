@@ -181,7 +181,7 @@ function wpmt_enqueue_scripts(){
 	        'ajaxurl'			=> admin_url( 'admin-ajax.php' ),
 			'redirecturl'		=> isset($options['login_redirect_URL']) ? $options['login_redirect_URL'] : home_url('/profile/'),
                         'redirecturl_login'		=> home_url('/login/'),
-			'register_redirect'	=> isset($options['register_redirect_URL']) ? $options['register_redirect_URL'] : home_url(),
+			'register_redirect'	=> isset($options['register_redirect_URL']) ? $options['register_redirect_URL'] : home_url('/login/'),
         	'loadingmessage'	=> __('Sending user info, please wait...')
     	));
         
