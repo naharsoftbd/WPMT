@@ -23,6 +23,7 @@ require_once(ABSPATH . 'wp-load.php' );
 include(plugin_dir_path( __FILE__ ).'include/core/Classes.functions.php'); 
 include WPMT_ROOT.'/include/core/Class.login.php';
 include WPMT_ROOT.'/include/core/Class.registration.php';
+include WPMT_ROOT.'/include/core/Class.profile.php';
 
 /**
  * Main class for WP Multi Task
@@ -36,9 +37,9 @@ include WPMT_ROOT.'/include/core/Class.registration.php';
 
         function __construct() {
 			    
-				$this->initiat();
-				register_activation_hook( __FILE__, array($this, 'install') );
-				register_deactivation_hook( __FILE__, array($this, 'uninstall') );
+				$this->wpmt_initiat();
+				register_activation_hook( __FILE__, array($this, 'wpmt_install') );
+				register_deactivation_hook( __FILE__, array($this, 'wpmt_uninstall') );
 				add_action( 'init', array($this, 'wpmt_load_textdomain') );
 				add_action( 'wp_enqueue_scripts', array($this, 'wpmt_enqueue_scripts') );
 
@@ -63,9 +64,10 @@ include WPMT_ROOT.'/include/core/Class.registration.php';
 	}
 	/* initiat the class  
 	*/
-	function initiat(){
+	function wpmt_initiat(){
 		WPMT_Login::init();
 		WPMT_Registration::init();
+		WPMT_Profile::init();
 	}
 	
 	/**
@@ -73,7 +75,7 @@ include WPMT_ROOT.'/include/core/Class.registration.php';
      *
      * @global object $wpdb
      */
-	function install() {
+	function wpmt_install() {
         global $wpdb;
 
         flush_rewrite_rules( false );
@@ -136,7 +138,7 @@ include WPMT_ROOT.'/include/core/Class.registration.php';
      *
      * @return void
      */
-    function uninstall() {
+    function wpmt_uninstall() {
          
 		  foreach(get_option('wpmtpages') as $pageid):
 		     wp_delete_post ($pageid, true);
@@ -153,27 +155,24 @@ function wpmt_enqueue_scripts(){
     wp_enqueue_style('jquery-ui-css');
 	wp_register_style('jquery.steps', plugin_dir_url( __FILE__ ).'assets/css/jquery.steps.css');
     wp_enqueue_style('jquery.steps');
-	wp_register_style('jquery.dataTables', plugin_dir_url( __FILE__ ).'assets/css/jquery.dataTables.min.css');
-    wp_enqueue_style('jquery.dataTables');
-    wp_register_style('font-awesome-min', plugin_dir_url( __FILE__ ).'assets/css/font-awesome.min.css');
+	wp_register_style('font-awesome-min', plugin_dir_url( __FILE__ ).'assets/css/font-awesome.min.css');
     wp_enqueue_style('font-awesome-min');
 	wp_register_style('wpmt-style', plugin_dir_url( __FILE__ ).'assets/css/style.css');
     wp_enqueue_style('wpmt-style');
 	wp_register_style('wpmt-responsive', plugin_dir_url( __FILE__ ).'assets/css/responsive.css');
     wp_enqueue_style('wpmt-responsive');
-    wp_register_script('jquery-script', plugin_dir_url( __FILE__ ).'assets/js/jquery.min.js', array('jquery'));
-    wp_enqueue_script('jquery-script');
-    wp_register_script('jquery-ui-script', plugin_dir_url( __FILE__ ).'assets/js/jquery-ui.js', array('jquery'));
-    wp_enqueue_script('jquery-ui-script');
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery-ui-datepicker' );
+    wp_enqueue_script( 'jquery-ui-autocomplete' );
+    wp_enqueue_script( 'suggest' );
+    wp_enqueue_script( 'jquery-ui-slider' );
     wp_register_script('validate-script', plugin_dir_url( __FILE__ ).'assets/js/jquery.validate.js', array('jquery'));
     wp_enqueue_script('validate-script');
 	wp_register_script('bootstrap-min-js', plugin_dir_url( __FILE__ ).'assets/js/bootstrap.min.js', array('jquery'));
     wp_enqueue_script('bootstrap-min-js');
 	wp_register_script('jquery.steps-js', plugin_dir_url( __FILE__ ).'assets/js/jquery.steps.min.js', array('jquery'));
     wp_enqueue_script('jquery.steps-js');
-	wp_register_script('jquery.datatable-js', plugin_dir_url( __FILE__ ).'assets/js/jquery.dataTables.min.js', array('jquery'));
-    wp_enqueue_script('jquery.datatable-js');
-    wp_register_script('wpmt-script', plugin_dir_url( __FILE__ ).'assets/js/wpmt-script.js', array('jquery'));
+	wp_register_script('wpmt-script', plugin_dir_url( __FILE__ ).'assets/js/wpmt-script.js', array('jquery'));
     wp_enqueue_script('wpmt-script');
     
     

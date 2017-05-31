@@ -16,6 +16,11 @@ if(!is_user_logged_in()){
                         <?php _e('Password:','documents'); ?>
                     </label>
                     <input type="password" class="form-control required" name="password" id="password"> </div>
+					<div class="form-group">					     
+							<input name="rememberme" type="checkbox" id="wpmt-rememberme" value="forever" />
+							<label for="wpmt-rememberme"><?php esc_attr_e( 'Remember Me' ); ?></label>
+						
+					</div>
                 <div class="form-group">
                     <input type="submit" value="Submit" name="login-submit" class="login_sub_btn"> </div>
         </div>

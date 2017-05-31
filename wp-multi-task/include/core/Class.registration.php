@@ -12,8 +12,8 @@
 	  function __construct(){
 		  
 		  add_shortcode('wpmt-registration',array($this,'registration_view'));
-		  add_action('wp_ajax_userregistration',array($this,'userregistration'));
-		  add_action('wp_ajax_nopriv_userregistration',array($this,'userregistration'));
+		  add_action('wp_ajax_userregistration',array($this,'wpmt_userregistration'));
+		  add_action('wp_ajax_nopriv_userregistration',array($this,'wpmt_userregistration'));
 		  
 	  }
 	  
@@ -29,7 +29,7 @@
 		  include WPMT_ROOT.'/view/registration.php';
 	  }
 	  
-	public function userregistration(){
+	public function wpmt_userregistration(){
         
       parse_str($_POST["userreg"], $_POST);
       $fname = $_POST['fname'];
@@ -77,6 +77,7 @@
       // will return false if the previous value is the same as $new_value
         $prefix = 'user_';
         update_user_meta( $user_id, 'first_name', $fname);
+		update_user_meta( $user_id, 'last_name', $lname);
         update_user_meta( $user_id, 'nickname', $user_name);
         update_user_meta( $user_id, 'display_name', $user_name);
         update_user_meta( $user_id, $prefix.'address', $address);

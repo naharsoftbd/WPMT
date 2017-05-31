@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
         e.preventDefault();
     });
     $('.change_passwd').click(function(){
-        action = 'auth_change_password';
+        action = 'wpmt_change_password';
         var confirm_password = $('#confirm_password').val();
         var password = $('#password').val();
         var old_passord = $('#old_password').val();

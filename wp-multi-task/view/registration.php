@@ -8,6 +8,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="sec-title usersuccess text-center">
                 <h1><?php _e('Online Registration','wpmt'); ?> </h1>
                 <span class="border"></span>
+				<p class="status alert-success"></p>
+
             </div>
             <div class="privideinfo">
                 <form name="register" id="register" method="post" action="">

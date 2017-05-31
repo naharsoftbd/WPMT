@@ -11,9 +11,9 @@
 			private static $_instance = null;
 			
 			function __construct(){
-				add_shortcode('wpmt-login',array($this,'login_view'));
-				add_action( 'wp_ajax_process_login', array($this,'process_login'));
-				add_action( 'wp_ajax_nopriv_process_login', array($this,'process_login'));
+				add_shortcode('wpmt-login',array($this,'wpmt_login_view'));
+				add_action( 'wp_ajax_process_login', array($this,'wpmt_process_login'));
+				add_action( 'wp_ajax_nopriv_process_login', array($this,'wpmt_process_login'));
 			}
 			
 		    public static function init(){
@@ -23,18 +23,20 @@
 				return self::$_instance;
 			}
 		   
-		   function login_view(){
+		   function wpmt_login_view(){
 			   include WPMT_ROOT.'/view/login.php';
 		   }
 		   
-		   function process_login(){
-			   
+		   function wpmt_process_login(){
+			    parse_str($_POST["userreg"], $_POST);
 			    $user_login = $_POST['username']; 
 				$password = $_POST['password'];
 			    $info = array();
 				$info['user_login'] = $user_login;
 				$info['user_password'] = $password;
-				$info['remember'] = true;
+				if(!empty($_POST['rememberme'])){
+					$info['remember'] = true;
+				}
 				
 				$user_signon = wp_signon( $info, false );
 				header("Content-Type: application/json", true);
