@@ -32,13 +32,13 @@
 	public function wpmt_userregistration(){
         
       parse_str($_POST["userreg"], $_POST);
-      $fname = $_POST['fname'];
-	  $lname = $_POST['lname'];
-      $user_name = $_POST['nickname'];
+      $fname = sanitize_text_field($_POST['fname']);
+	  $lname = sanitize_text_field($_POST['lname']);
+      $user_name = sanitize_text_field($_POST['nickname']);
       $dobdate = $_POST['dob-date'];
-      $user_email = $_POST['email'];
+      $user_email = sanitize_email($_POST['email']);
       $mobilenumber = $_POST['mobilenumber'];
-      $address = $_POST['address'];
+      $address = sanitize_textarea_field($_POST['address']);
             
         $user_id = username_exists($user_name);
         if(empty($user_id)){

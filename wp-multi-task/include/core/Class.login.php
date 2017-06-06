@@ -29,7 +29,7 @@
 		   
 		   function wpmt_process_login(){
 			    parse_str($_POST["userreg"], $_POST);
-			    $user_login = $_POST['username']; 
+			    $user_login = sanitize_user($_POST['username']); 
 				$password = $_POST['password'];
 			    $info = array();
 				$info['user_login'] = $user_login;
