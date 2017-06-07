@@ -35,10 +35,10 @@
       $fname = sanitize_text_field($_POST['fname']);
 	  $lname = sanitize_text_field($_POST['lname']);
       $user_name = sanitize_text_field($_POST['nickname']);
-      $dobdate = $_POST['dob-date'];
+      $dobdate = preg_replace("([^0-9/] | [^0-9-])", "", $_POST['dob-date']);
       $user_email = sanitize_email($_POST['email']);
-      $mobilenumber = $_POST['mobilenumber'];
-      $address = sanitize_textarea_field($_POST['address']);
+      $mobilenumber = (int) $_POST['mobilenumber'];
+      $address = sanitize_text_field($_POST['address']);
             
         $user_id = username_exists($user_name);
         if(empty($user_id)){
@@ -70,7 +70,7 @@
 					 
 					wp_mail( $to, $subject, $message, $headers );
                    
-                echo '<div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>User '.__($user_name.' created successfully, please check your email inbox or junk or spam for getting password','istcoderbooking').'</div>';
+                //echo '<div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>User '.__($user_name.' created successfully, please check your email inbox or junk or spam for getting password','istcoderbooking').'</div>';
         } else {
                 echo $random_password = '<div class="alert alert-danger alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.__('User already exists.  Password inherited.').'</div>';
         }
