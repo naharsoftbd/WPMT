@@ -27,7 +27,33 @@
 			include WPMT_ROOT .'/view/dashboard.php';
 		}
 		
-	   public function wpmt_change_password(){
+	/**
+     * Show user info on dashboard
+     */
+   public function userinfo() {
+        global $userdata;
+
+        //if ( wpmt_get_option( 'show_user_bio', 'wpmt_dashboard', 'on' ) == 'on' ) {
+            ?>
+            <div class="wpmt-author">
+                <h3><?php _e( 'Author Info', 'wpmt' ); ?></h3>
+                <div class="wpmt-author-inside odd">
+                    <div class="wpmt-user-image"><?php echo get_avatar( $userdata->user_email, 80 ); ?></div>
+                    <div class="wpmt-author-body">
+                        <p class="wpmt-user-name"><a href="<?php echo get_author_posts_url( $userdata->ID ); ?>"><?php printf( esc_attr__( '%s', 'wpmt' ), $userdata->display_name ); ?></a></p>
+                        <p class="wpmt-author-info"><?php echo $userdata->description; ?></p>
+                    </div>
+                </div>
+            </div><!-- .author -->
+            <?php
+      //  }
+    }
+	
+	/**
+     * Change user password with current password from user profile
+     */
+    	
+	public function wpmt_change_password(){
          $old_password = $_POST['old_password'];
          $password = $_POST['password'];
          $confirm_password = $_POST['confirm_password'];

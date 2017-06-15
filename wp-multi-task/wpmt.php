@@ -24,6 +24,8 @@ include(plugin_dir_path( __FILE__ ).'include/core/Classes.functions.php');
 include WPMT_ROOT.'/include/core/Class.login.php';
 include WPMT_ROOT.'/include/core/Class.registration.php';
 include WPMT_ROOT.'/include/core/Class.profile.php';
+include WPMT_ROOT.'/include/admin/installer.php';
+
 
 /**
  * Main class for WP Multi Task
@@ -68,6 +70,12 @@ include WPMT_ROOT.'/include/core/Class.profile.php';
 		WPMT_Login::init();
 		WPMT_Registration::init();
 		WPMT_Profile::init();
+		
+		if(is_admin){
+			new WPMT_Admin_Installer();
+			wpmt_Admin_Settings::init();
+		}else{
+		}
 	}
 	
 	/**

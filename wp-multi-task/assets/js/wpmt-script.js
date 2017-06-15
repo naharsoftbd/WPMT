@@ -24,16 +24,11 @@ jQuery(document).ready(function($){
 				userreg
 		},
             success: function (data) {
+                 
+				$('p.status').show().html(data);
+				
+					document.location.href = jQuery(ctrl).attr ('id') == 'register' ? ajax_auth_object.register_redirect : ajax_auth_object.redirecturl;
                 
-               if (!$.trim(data)){  
-			       $('p.status').show().html(data);
-                   document.location.href = jQuery(ctrl).attr ('id') == 'register' ? ajax_auth_object.register_redirect : ajax_auth_object.redirecturl;
-                			   
-			   }else{
-				   $('.usersuccess .border').after(data);
-			   }				   
-							
-					
             }
         });
         e.preventDefault();

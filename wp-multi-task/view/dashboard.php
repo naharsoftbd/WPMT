@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+$wpmtprofile  =	WPMT_Profile::init();
 $user_id = get_current_user_id();
 $prefix = 'user_';
 $single = true;
@@ -25,9 +26,7 @@ if(is_user_logged_in()){
                     $exp_date = str_replace('/', '-', $appdob);
                     $dobdate = date("m/d/Y", strtotime($exp_date));
                     $where = get_posts_by_author_sql( 'booked' );
-                    global $wpdb;
-                   $query = "SELECT ID FROM $wpdb->posts $where AND post_author ='$author_id'";                  
-                   $results = $wpdb->get_results($query);
+                    
                    
           
         ?>
@@ -36,12 +35,12 @@ if(is_user_logged_in()){
             <li class="active"><a data-toggle="tab" href="#home"><?php _e('My Details','wpmt'); ?></a></li>
             <li><a data-toggle="tab" href="#menu1"><?php _e('Inbox','wpmt'); ?></a></li>
 			<li><a data-toggle="tab" href="#changepass"><?php _e('Change Password','wpmt'); ?></a></li>
-            <li><a  href="<?php echo wp_logout_url(home_url()); ?>"><?php _e('Logout','wpmt'); ?></a></li>
+            <li><a  href="<?php echo wp_logout_url(home_url('/login')); ?>"><?php _e('Logout','wpmt'); ?></a></li>
         </ul>
 
           <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-              
+              <?php $this->userinfo(); ?>
               <ul class="userinfo">
                     <li><h4><?php _e('Date Of Borith (dob) : ','wpmt'); echo $appdob; ?></h4></li>
                     <li><h4><?php _e('Mobile Number : ','wpmt'); echo $mobilenumber; ?></h4></li>

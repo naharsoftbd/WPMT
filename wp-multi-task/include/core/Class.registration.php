@@ -70,7 +70,7 @@
 					 
 					wp_mail( $to, $subject, $message, $headers );
                    
-                //echo '<div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>User '.__($user_name.' created successfully, please check your email inbox or junk or spam for getting password','istcoderbooking').'</div>';
+                echo '<div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>User '.__($user_name.' created successfully, please check your email inbox or junk or spam for getting password','istcoderbooking').'</div>';
         } else {
                 echo $random_password = '<div class="alert alert-danger alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.__('User already exists.  Password inherited.').'</div>';
         }
